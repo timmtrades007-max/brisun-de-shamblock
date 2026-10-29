@@ -271,8 +271,8 @@
     <p class="kicker">The movie reel</p>
     <div class="players">
       <figure>
-        <video src="videos/the-trio.mp4" controls autoplay muted loop playsinline poster="images/ig-hero.jpg"></video>
-        <figcaption>Scottie, Bryson, Daly · 8 sec</figcaption>
+        <video src="videos/the-toast.mp4" controls autoplay muted loop playsinline poster="images/joke-daly.jpg"></video>
+        <figcaption>The toast · 8 sec</figcaption>
       </figure>
     </div>
   </section>
@@ -290,7 +290,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>6</b><span>posts</span></div>
+            <div><b>3</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -319,8 +319,8 @@
         </div>
         <div class="grid" id="grid"></div>
         <div class="reels" id="reels" hidden>
-          <video src="videos/the-trio.mp4" controls playsinline poster="images/ig-hero.jpg"></video>
-          <p>Scottie checks the time. Bryson is still on the tube. Daly has already hit.</p>
+          <video src="videos/the-toast.mp4" controls playsinline poster="images/joke-daly-reel.jpg"></video>
+          <p>John Daly's best-man speech was going perfectly. Until he stood up.</p>
         </div>
       </div>
     </div>
@@ -397,48 +397,29 @@
   <script>
     const posts = [
       {
-        img: "images/ig-tee.jpg",
-        alt: "Scottie checks his watch while Bryson applies sunscreen and Daly has already swung",
-        caption: "Scottie checked his watch. Bryson was still on the forearm. Daly had already hit.",
-        tags: "#Shamblock #Scottie #JohnDaly"
+        img: "images/joke-daly.jpg",
+        alt: "John Daly in argyle raising a glass at a black-tie dinner",
+        caption: "John Daly's best-man speech was going perfectly. Until he stood up.",
+        tags: "#Shamblock #JohnDaly"
       },
       {
-        img: "images/ig-finish.jpg",
-        alt: "Bryson finishes a drive while Scottie stands unimpressed and Daly claps",
-        caption: "Scottie did not clap. Daly did. The ball was already gone.",
-        tags: "#Shamblock #BigDrives"
+        img: "images/joke-scottie.jpg",
+        alt: "Scottie Scheffler walking to his car while the trophy is still on stage",
+        caption: "Scottie won the playoff. He was in the parking lot before they brought out the trophy.",
+        tags: "#Shamblock #Scottie"
       },
       {
-        img: "images/ig-hero.jpg",
-        alt: "Bryson holds a sunscreen tube while Daly finishes and Scottie stares",
-        caption: "The routine was not finished. The swing was.",
-        tags: "#Shamblock #TheTee"
-      },
-      {
-        img: "images/ig-sitdown.jpg",
-        alt: "Bryson, Daly, and Scottie at a table with a driver and a sunscreen tube",
-        caption: "Bryson brought the terms. It was a tube. Scottie folded his hands. Daly laughed.",
-        tags: "#Shamblock #TheSitDown"
-      },
-      {
-        img: "images/ig-bryson.jpg",
-        alt: "Bryson with a zinc stripe across his nose",
-        caption: "Zinc on. Then we talk about ball speed.",
+        img: "images/joke-bryson.jpg",
+        alt: "Bryson still explaining into a microphone in an empty room",
+        caption: "They asked Bryson for a quote. He asked if they had forty minutes.",
         tags: "#BrisunDeShamblock #Shamblock"
-      },
-      {
-        img: "images/ig-bag.jpg",
-        alt: "Golf bag with one ball, a glove, tees, and a sunscreen tube in the pocket",
-        caption: "One ball. One glove. The tube in the pocket, where it belongs.",
-        tags: "#Shamblock #InTheBag"
       }
     ];
 
     const highlights = [
-      { name: "The Tee", img: "images/ig-tee.jpg", line: "Daly hit. Bryson was still lotioning." },
-      { name: "Finish", img: "images/ig-finish.jpg", line: "Scottie did not clap." },
-      { name: "The Table", img: "images/ig-sitdown.jpg", line: "The terms were a tube of sunscreen." },
-      { name: "The Bag", img: "images/ig-bag.jpg", line: "One ball. The tube stays in the pocket." }
+      { name: "The Toast", img: "images/joke-daly.jpg", line: "The speech was going fine. Then he stood up." },
+      { name: "The Exit", img: "images/joke-scottie.jpg", line: "Scottie won. Then he left." },
+      { name: "The Quote", img: "images/joke-bryson.jpg", line: "They asked for a quote. He asked for forty minutes." }
     ];
 
     const grid = document.getElementById("grid");
