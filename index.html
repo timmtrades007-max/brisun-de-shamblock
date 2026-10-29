@@ -271,8 +271,8 @@
     <p class="kicker">The movie reel</p>
     <div class="players">
       <figure>
-        <video src="videos/the-toast.mp4" controls autoplay muted loop playsinline poster="images/joke-daly.jpg"></video>
-        <figcaption>The toast · 8 sec</figcaption>
+        <video src="videos/the-runup.mp4" controls autoplay muted loop playsinline poster="images/happy-run-reel.jpg"></video>
+        <figcaption>The run-up · 6 sec</figcaption>
       </figure>
     </div>
   </section>
@@ -281,7 +281,7 @@
       <p class="kicker">Launch preview</p>
       <h1>@brisundeshamblock</h1>
       <p class="lede">A parody account built like Bryson’s game: big drives, big hits, and a sunblock for the walk after a 320-yard carry leaves the shade behind.</p>
-      <div class="note">AI parody. The faces are Bryson, Scottie Scheffler, and John Daly. Not an endorsement, and not a live Instagram.</div>
+      <div class="note">AI parody. Bryson, Scottie Scheffler, John Daly, and Happy Gilmore. Not an endorsement, and not a live Instagram.</div>
       <div class="phone" id="phone">
         <div class="ig-top">
           <span>brisundeshamblock</span>
@@ -290,7 +290,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>3</b><span>posts</span></div>
+            <div><b>5</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -319,8 +319,8 @@
         </div>
         <div class="grid" id="grid"></div>
         <div class="reels" id="reels" hidden>
-          <video src="videos/the-toast.mp4" controls playsinline poster="images/joke-daly-reel.jpg"></video>
-          <p>John Daly's best-man speech was going perfectly. Until he stood up.</p>
+          <video src="videos/the-runup.mp4" controls playsinline poster="images/happy-run-reel.jpg"></video>
+          <p>Happy's run-up was going perfectly. The Shamblock was still on the bench.</p>
         </div>
       </div>
     </div>
@@ -397,29 +397,42 @@
   <script>
     const posts = [
       {
-        img: "images/joke-daly.jpg",
-        alt: "John Daly in argyle raising a glass at a black-tie dinner",
-        caption: "John Daly's best-man speech was going perfectly. Until he stood up.",
-        tags: "#Shamblock #JohnDaly"
+        img: "images/happy-run.jpg",
+        alt: "Happy Gilmore finishes a running swing while a tube of sunscreen sits on the bench",
+        caption: "Happy's run-up was going perfectly. The Shamblock was still on the bench.",
+        tags: "#Shamblock #HappyGilmore"
       },
       {
-        img: "images/joke-scottie.jpg",
-        alt: "Scottie Scheffler walking to his car while the trophy is still on stage",
-        caption: "Scottie won the playoff. He was in the parking lot before they brought out the trophy.",
-        tags: "#Shamblock #Scottie"
+        img: "images/daly-rip.jpg",
+        alt: "John Daly finishes a drive with zinc on his nose and sunscreen in his pocket",
+        caption: "Ninth alternate. He drove all night. The zinc went on in the car.",
+        tags: "#Shamblock #GripItAndRipIt"
       },
       {
-        img: "images/joke-bryson.jpg",
-        alt: "Bryson still explaining into a microphone in an empty room",
-        caption: "They asked Bryson for a quote. He asked if they had forty minutes.",
-        tags: "#BrisunDeShamblock #Shamblock"
+        img: "images/bryson-lake.jpg",
+        alt: "Bryson watches his ball splash in the lake while sunscreen sits unopened",
+        caption: "Lay up, or reapply. He did neither. Shamblock watched from the bank.",
+        tags: "#Shamblock #TinCup"
+      },
+      {
+        img: "images/scottie-turn.jpg",
+        alt: "Scottie at the turn with zinc on, a hot dog in one hand and sunscreen in the other",
+        caption: "The turn special was a hot dog. Scottie put the Shamblock on first.",
+        tags: "#Shamblock #TheTurn"
+      },
+      {
+        img: "images/scottie-caddie.jpg",
+        alt: "A caddie hands Scottie a tube of sunscreen on the putting green",
+        caption: "They said be the ball. The caddie handed him Shamblock.",
+        tags: "#Shamblock #BeTheBall"
       }
     ];
 
     const highlights = [
-      { name: "The Toast", img: "images/joke-daly.jpg", line: "The speech was going fine. Then he stood up." },
-      { name: "The Exit", img: "images/joke-scottie.jpg", line: "Scottie won. Then he left." },
-      { name: "The Quote", img: "images/joke-bryson.jpg", line: "They asked for a quote. He asked for forty minutes." }
+      { name: "Run-up", img: "images/happy-run.jpg", line: "The Shamblock stayed on the bench." },
+      { name: "Rip it", img: "images/daly-rip.jpg", line: "The zinc went on in the car." },
+      { name: "The lake", img: "images/bryson-lake.jpg", line: "He did not lay up. Or reapply." },
+      { name: "The turn", img: "images/scottie-turn.jpg", line: "Shamblock, then the hot dog." }
     ];
 
     const grid = document.getElementById("grid");
