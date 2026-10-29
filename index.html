@@ -267,15 +267,6 @@
   </style>
 </head>
 <body>
-  <section class="watch">
-    <p class="kicker">The movie reel</p>
-      <div class="players">
-      <figure>
-        <video src="videos/the-park.mp4" controls muted playsinline poster="images/gag-parked-reel.jpg"></video>
-        <figcaption>The tee · 6 sec</figcaption>
-      </figure>
-    </div>
-  </section>
   <div class="wrap">
     <div>
       <p class="kicker">Launch preview</p>
@@ -290,7 +281,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>8</b><span>posts</span></div>
+            <div><b>3</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -317,10 +308,7 @@
           </button>
         </div>
         <div class="grid" id="grid"></div>
-        <div class="reels" id="reels" hidden>
-          <video src="videos/the-park.mp4" controls playsinline poster="images/gag-parked-reel.jpg"></video>
-          <p>Daly drove all night. Until the door shut, the Shamblock was still crooked and the ball was still teed.</p>
-        </div>
+        <div class="reels" id="reels" hidden></div>
       </div>
     </div>
 
@@ -356,11 +344,9 @@
 
       <h2>What is on the feed</h2>
       <ul>
-        <li>The shake. Shooter’s hand is out. Happy is already gone.</li>
-        <li>The bank. Happy teed it at the water.</li>
-        <li>The putt. It is in. Scottie has not moved.</li>
-        <li>The tee. Daly parked. The door shuts. He is still hitting.</li>
-        <li>Still up: the sprint, the hand, the lineup, and the nap.</li>
+        <li>The bunker. Daly fell asleep. The cart did not.</li>
+        <li>The bank. Happy teed it in the water.</li>
+        <li>The lineup. Daly saluted in the argyle.</li>
       </ul>
     </aside>
   </div>
@@ -396,62 +382,29 @@
   <script>
     const posts = [
       {
-        img: "images/gag-handshake.jpg",
-        alt: "Shooter McGavin reaches a cream-covered hand toward an empty tee",
-        caption: "Shooter offered the Shamblock handshake. Until Happy was already gone.",
-        tags: "#Shamblock #ShooterMcGavin"
+        img: "images/gag-bunker.jpg",
+        alt: "John Daly asleep in a golf cart buried in a bunker",
+        caption: "Daly said he was laying up. Until the cart stopped in the bunker.",
+        tags: "#Shamblock #JohnDaly"
       },
       {
         img: "images/gag-bank.jpg",
         alt: "Happy Gilmore addresses a driver with the ball teed at the waterline",
-        caption: "They said lay up. Until Happy teed it on the bank, the Shamblock was the only thing he did.",
+        caption: "They said lay up. Until Happy teed it on the bank.",
         tags: "#Shamblock #HappyGilmore"
-      },
-      {
-        img: "images/gag-in.jpg",
-        alt: "Scottie Scheffler stares deadpan at a ball that is already in the hole",
-        caption: "The putt was already in. Until the Shamblock dried, Scottie still had not moved.",
-        tags: "#Shamblock #Scottie"
-      },
-      {
-        img: "images/gag-parked.jpg",
-        alt: "John Daly stands with a driver beside a sedan parked on the course",
-        caption: "Daly drove all night as the ninth alternate. Until he parked on the tee, the Shamblock was still crooked.",
-        tags: "#Shamblock #JohnDaly"
-      },
-      {
-        img: "images/gag-hand.jpg",
-        alt: "Happy Gilmore smears sunscreen across Shooter McGavin's cheek",
-        caption: "Shooter asked for a touch-up. Happy used his whole hand.",
-        tags: "#Shamblock #HappyGilmore"
-      },
-      {
-        img: "images/gag-sprint.jpg",
-        alt: "Happy Gilmore sprints at a ball that is still on the tee",
-        caption: "Happy called fore. He was still forty yards out.",
-        tags: "#Shamblock #TheRunUp"
       },
       {
         img: "images/gag-lineup.jpg",
         alt: "John Daly salutes in argyle trousers in a lineup of navy caddies",
         caption: "The lineup was navy. Daly saluted in the argyle.",
         tags: "#Shamblock #JohnDaly"
-      },
-      {
-        img: "images/gag-asleep.jpg",
-        alt: "Bryson keeps talking while John Daly sleeps in the chair",
-        caption: "Bryson had twelve slides. Daly was out on slide one.",
-        tags: "#Shamblock #Bryson"
       }
     ];
 
     const highlights = [
-      { name: "The shake", img: "images/gag-handshake.jpg", line: "Shooter offered the handshake." },
+      { name: "The bunker", img: "images/gag-bunker.jpg", line: "The cart stopped in the bunker." },
       { name: "The bank", img: "images/gag-bank.jpg", line: "Happy teed it on the bank." },
-      { name: "The putt", img: "images/gag-in.jpg", line: "It was already in." },
-      { name: "The tee", img: "images/gag-parked.jpg", line: "Daly parked on the tee." },
-      { name: "The sprint", img: "images/gag-sprint.jpg", line: "Fore, from forty yards out." },
-      { name: "The hand", img: "images/gag-hand.jpg", line: "Shooter asked for a touch-up." }
+      { name: "The lineup", img: "images/gag-lineup.jpg", line: "Daly saluted in the argyle." }
     ];
 
     const grid = document.getElementById("grid");
