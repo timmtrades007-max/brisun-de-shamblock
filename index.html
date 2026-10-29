@@ -156,7 +156,7 @@
     .grid button { padding: 0; border: 0; background: #eee; cursor: pointer; aspect-ratio: 1; }
     .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .reels { background: #000; }
-    .reels video { width: 100%; display: block; background: #000; }
+    .reels video, .reels img { width: 100%; display: block; background: #000; }
     .reels p { margin: 0; padding: 10px 14px 16px; background: #fff; color: #262626; font-size: 13px; line-height: 1.4; border-bottom: 8px solid #000; }
     .modal, .story {
       position: fixed;
@@ -267,15 +267,6 @@
   </style>
 </head>
 <body>
-  <section class="watch">
-    <p class="kicker">The movie reel</p>
-    <div class="players">
-      <figure>
-        <video src="videos/the-baywatch.mp4" controls muted playsinline poster="images/gag-baywatch.jpg"></video>
-        <figcaption>Baywatch · 6 sec</figcaption>
-      </figure>
-    </div>
-  </section>
   <div class="wrap">
     <div>
       <p class="kicker">Launch preview</p>
@@ -290,7 +281,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>5</b><span>posts</span></div>
+            <div><b>4</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -318,8 +309,8 @@
         </div>
         <div class="grid" id="grid"></div>
         <div class="reels" id="reels" hidden>
-          <video src="videos/the-baywatch.mp4" controls playsinline poster="images/gag-baywatch.jpg"></video>
-          <p>The drive left the shade. Daly ran the bunker like Baywatch.</p>
+          <img src="images/gag-tower.jpg" alt="John Daly sits a lifeguard chair in a bunker, watching one golf ball" />
+          <p>The bunker was the beach. Until Daly took the chair.</p>
         </div>
       </div>
     </div>
@@ -356,9 +347,10 @@
 
       <h2>What is on the feed</h2>
       <ul>
-        <li>Baywatch. Daly ran the sand. The ball was the swimmer.</li>
-        <li>The rake. Shooter brought a rake to a beach.</li>
-        <li>The bunker. The cart left the shade and found the sand.</li>
+        <li>The chair. Daly guarded one ball from a lifeguard stand in the bunker.</li>
+        <li>The day. He put a beach chair in the sand and stayed.</li>
+        <li>The shade. Five of them never left the tree.</li>
+        <li>The cart. It stopped in the bunker.</li>
       </ul>
     </aside>
   </div>
@@ -394,42 +386,36 @@
   <script>
     const posts = [
       {
-        img: "images/gag-baywatch-grid.jpg",
-        alt: "John Daly runs through the sand in argyle toward a golf ball",
-        caption: "The drive left the shade. Daly ran the bunker like Baywatch.",
+        img: "images/gag-tower.jpg",
+        alt: "John Daly sits a lifeguard chair in a bunker, watching one golf ball",
+        caption: "The bunker was the beach. Until Daly took the chair.",
         tags: "#Shamblock #JohnDaly"
       },
       {
-        img: "images/gag-rake.jpg",
-        alt: "Shooter McGavin holds a small rake at the edge of a huge bunker",
-        caption: "The ball left the shade. Shooter was going to need a bigger rake.",
-        tags: "#Shamblock #ShooterMcGavin"
+        img: "images/gag-chair.jpg",
+        alt: "John Daly reclines in a beach chair in the sand beside a golf ball",
+        caption: "The ball found the sand. Until Daly set up for the day.",
+        tags: "#Shamblock #JohnDaly"
+      },
+      {
+        img: "images/gag-shade.jpg",
+        alt: "Five golfers stand in the shade of a tree while one golfer stands in the sun",
+        caption: "They stayed under the tree. Until one drive left the shade.",
+        tags: "#Shamblock"
       },
       {
         img: "images/gag-bunker.jpg",
         alt: "John Daly asleep in a golf cart buried in a bunker",
-        caption: "The shade was under the trees. Until the cart stopped, Daly had found the beach.",
-        tags: "#Shamblock #JohnDaly"
-      },
-      {
-        img: "images/gag-bank.jpg",
-        alt: "Happy Gilmore addresses a driver with the ball teed at the waterline",
-        caption: "They said lay up in the shade. Until Happy teed it at the water.",
-        tags: "#Shamblock #HappyGilmore"
-      },
-      {
-        img: "images/gag-lineup.jpg",
-        alt: "John Daly salutes in argyle trousers in a lineup of navy caddies",
-        caption: "The lineup was navy. Daly saluted in the argyle.",
+        caption: "The shade was under the trees. Until the cart stopped in the sand.",
         tags: "#Shamblock #JohnDaly"
       }
     ];
 
     const highlights = [
-      { name: "Baywatch", img: "images/gag-baywatch-grid.jpg", line: "Daly ran the bunker." },
-      { name: "The rake", img: "images/gag-rake.jpg", line: "He needed a bigger rake." },
-      { name: "The beach", img: "images/gag-bunker.jpg", line: "The cart found the beach." },
-      { name: "The bank", img: "images/gag-bank.jpg", line: "Happy left the shade." }
+      { name: "The chair", img: "images/gag-tower.jpg", line: "Daly took the chair." },
+      { name: "The day", img: "images/gag-chair.jpg", line: "He set up in the sand." },
+      { name: "The shade", img: "images/gag-shade.jpg", line: "They never left the tree." },
+      { name: "The cart", img: "images/gag-bunker.jpg", line: "The cart stopped in the sand." }
     ];
 
     const grid = document.getElementById("grid");
