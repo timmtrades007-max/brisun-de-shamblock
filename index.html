@@ -267,11 +267,20 @@
   </style>
 </head>
 <body>
+  <section class="watch">
+    <p class="kicker">The movie reel</p>
+    <div class="players">
+      <figure>
+        <video src="videos/the-baywatch.mp4" controls muted playsinline poster="images/gag-baywatch.jpg"></video>
+        <figcaption>Baywatch · 6 sec</figcaption>
+      </figure>
+    </div>
+  </section>
   <div class="wrap">
     <div>
       <p class="kicker">Launch preview</p>
       <h1>@brisundeshamblock</h1>
-      <p class="lede">A parody account. The picture gets the laugh. Shamblock is the snap at the end of the caption.</p>
+      <p class="lede">A long drive leaves the trees. The bunker is the beach. Shamblock is for the few who actually get there.</p>
       <div class="note">AI parody. Happy Gilmore, Shooter McGavin, John Daly, Scottie, and Bryson. Not an endorsement, not a live Instagram, and not a tested SPF.</div>
       <div class="phone" id="phone">
         <div class="ig-top">
@@ -281,7 +290,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>3</b><span>posts</span></div>
+            <div><b>5</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -290,7 +299,7 @@
           <strong>Brisun De Shamblock</strong>
           <span class="cat">Athlete</span><br />
           Founder, Shamblock<br />
-          Golf. Laughs. The cream is the punchline.<br />
+          Long drives leave the shade. The bunker is the beach.<br />
           Parody account<br />
           <a href="#line">shamblock.club</a>
         </div>
@@ -308,7 +317,10 @@
           </button>
         </div>
         <div class="grid" id="grid"></div>
-        <div class="reels" id="reels" hidden></div>
+        <div class="reels" id="reels" hidden>
+          <video src="videos/the-baywatch.mp4" controls playsinline poster="images/gag-baywatch.jpg"></video>
+          <p>The drive left the shade. Daly ran the bunker like Baywatch.</p>
+        </div>
       </div>
     </div>
 
@@ -344,9 +356,9 @@
 
       <h2>What is on the feed</h2>
       <ul>
-        <li>The bunker. Daly fell asleep. The cart did not.</li>
-        <li>The bank. Happy teed it in the water.</li>
-        <li>The lineup. Daly saluted in the argyle.</li>
+        <li>Baywatch. Daly ran the sand. The ball was the swimmer.</li>
+        <li>The rake. Shooter brought a rake to a beach.</li>
+        <li>The bunker. The cart left the shade and found the sand.</li>
       </ul>
     </aside>
   </div>
@@ -382,15 +394,27 @@
   <script>
     const posts = [
       {
+        img: "images/gag-baywatch-grid.jpg",
+        alt: "John Daly runs through the sand in argyle toward a golf ball",
+        caption: "The drive left the shade. Daly ran the bunker like Baywatch.",
+        tags: "#Shamblock #JohnDaly"
+      },
+      {
+        img: "images/gag-rake.jpg",
+        alt: "Shooter McGavin holds a small rake at the edge of a huge bunker",
+        caption: "The ball left the shade. Shooter was going to need a bigger rake.",
+        tags: "#Shamblock #ShooterMcGavin"
+      },
+      {
         img: "images/gag-bunker.jpg",
         alt: "John Daly asleep in a golf cart buried in a bunker",
-        caption: "Daly said he was laying up. Until the cart stopped in the bunker.",
+        caption: "The shade was under the trees. Until the cart stopped, Daly had found the beach.",
         tags: "#Shamblock #JohnDaly"
       },
       {
         img: "images/gag-bank.jpg",
         alt: "Happy Gilmore addresses a driver with the ball teed at the waterline",
-        caption: "They said lay up. Until Happy teed it on the bank.",
+        caption: "They said lay up in the shade. Until Happy teed it at the water.",
         tags: "#Shamblock #HappyGilmore"
       },
       {
@@ -402,9 +426,10 @@
     ];
 
     const highlights = [
-      { name: "The bunker", img: "images/gag-bunker.jpg", line: "The cart stopped in the bunker." },
-      { name: "The bank", img: "images/gag-bank.jpg", line: "Happy teed it on the bank." },
-      { name: "The lineup", img: "images/gag-lineup.jpg", line: "Daly saluted in the argyle." }
+      { name: "Baywatch", img: "images/gag-baywatch-grid.jpg", line: "Daly ran the bunker." },
+      { name: "The rake", img: "images/gag-rake.jpg", line: "He needed a bigger rake." },
+      { name: "The beach", img: "images/gag-bunker.jpg", line: "The cart found the beach." },
+      { name: "The bank", img: "images/gag-bank.jpg", line: "Happy left the shade." }
     ];
 
     const grid = document.getElementById("grid");
@@ -465,7 +490,7 @@
     });
 
     document.getElementById("copy-bio").addEventListener("click", async () => {
-      const bio = "Brisun De Shamblock\nFounder, Shamblock\nGolf. Laughs. The cream is the punchline.\nParody account";
+      const bio = "Brisun De Shamblock\nFounder, Shamblock\nLong drives leave the shade. The bunker is the beach.\nParody account";
       await navigator.clipboard.writeText(bio);
       document.getElementById("copy-bio").textContent = "Bio copied";
     });
