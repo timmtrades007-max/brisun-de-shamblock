@@ -157,7 +157,7 @@
     .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .reels { background: #000; }
     .reels video { width: 100%; display: block; background: #000; }
-    .reels p { margin: 0; padding: 10px 14px 16px; background: #fff; color: #262626; font-size: 13px; line-height: 1.4; }
+    .reels p { margin: 0; padding: 10px 14px 16px; background: #fff; color: #262626; font-size: 13px; line-height: 1.4; border-bottom: 8px solid #000; }
     .modal, .story {
       position: fixed;
       inset: 0;
@@ -269,9 +269,13 @@
 <body>
   <section class="watch">
     <p class="kicker">The movie reel</p>
-    <div class="players">
+      <div class="players">
       <figure>
-        <video src="videos/the-sprint.mp4" controls autoplay muted loop playsinline poster="images/gag-sprint.jpg"></video>
+        <video src="videos/the-park.mp4" controls autoplay muted loop playsinline poster="images/gag-parked-reel.jpg"></video>
+        <figcaption>The tee · 6 sec</figcaption>
+      </figure>
+      <figure>
+        <video src="videos/the-sprint.mp4" controls muted loop playsinline poster="images/gag-sprint.jpg"></video>
         <figcaption>The sprint · 6 sec</figcaption>
       </figure>
     </div>
@@ -280,8 +284,8 @@
     <div>
       <p class="kicker">Launch preview</p>
       <h1>@brisundeshamblock</h1>
-      <p class="lede">A parody account built like Bryson’s game: big drives, big hits, and a sunblock for the walk after a 320-yard carry leaves the shade behind.</p>
-      <div class="note">AI parody. Happy Gilmore, Shooter McGavin, John Daly, and Bryson. Not an endorsement, and not a live Instagram.</div>
+      <p class="lede">A parody account. The picture gets the laugh. Shamblock is the snap at the end of the caption.</p>
+      <div class="note">AI parody. Happy Gilmore, Shooter McGavin, John Daly, Scottie, and Bryson. Not an endorsement, not a live Instagram, and not a tested SPF.</div>
       <div class="phone" id="phone">
         <div class="ig-top">
           <span>brisundeshamblock</span>
@@ -290,7 +294,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>4</b><span>posts</span></div>
+            <div><b>8</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -299,8 +303,7 @@
           <strong>Brisun De Shamblock</strong>
           <span class="cat">Athlete</span><br />
           Founder, Shamblock<br />
-          Big drives. Full sun. Zero fade.<br />
-          If it carries 320, it left the shade.<br />
+          Golf. Laughs. The cream is the punchline.<br />
           Parody account<br />
           <a href="#line">shamblock.club</a>
         </div>
@@ -319,6 +322,8 @@
         </div>
         <div class="grid" id="grid"></div>
         <div class="reels" id="reels" hidden>
+          <video src="videos/the-park.mp4" controls playsinline poster="images/gag-parked-reel.jpg"></video>
+          <p>Daly drove all night. Until the door shut, the Shamblock was still crooked and the ball was still teed.</p>
           <video src="videos/the-sprint.mp4" controls playsinline poster="images/gag-sprint.jpg"></video>
           <p>Happy called fore. He was still forty yards out.</p>
         </div>
@@ -348,20 +353,20 @@
 
       <h2>How the account talks</h2>
       <ul>
-        <li>Lead with the swing. Carry, ball speed, smash. The product is the second sentence.</li>
-        <li>Talk like the math is already done. State the number. Do not explain the worksheet.</li>
-        <li>Big hits only. Driver, the blast out of the sand, the ball already in the air.</li>
-        <li>Three bomb posts for every product post. The drive is the reason to follow.</li>
-        <li>Parody stays in the bio. This is an original character, not Bryson DeChambeau.</li>
+        <li>The picture is the joke. The caption snaps it. Shamblock is why.</li>
+        <li>One sentence, with an until. If the still needs the caption to be funny, it is not ready.</li>
+        <li>One face holds the frame, unless the joke is two people colliding.</li>
+        <li>The cream is on a person, or it is the reason they moved. A tube on a bench is an ad.</li>
+        <li>Parody stays on the page. Not an endorsement. Not a tested SPF.</li>
       </ul>
 
-      <h2>What to post this week</h2>
+      <h2>What is on the feed</h2>
       <ul>
-        <li>Day 1 — the mark. “Built for the swing that leaves the shade behind.”</li>
-        <li>Day 2 — the finish. Driver high, ball already gone. No product in the caption.</li>
-        <li>Day 3 — impact. The clubface is the whole post.</li>
-        <li>Day 4 — carry. Empty tee, ball in the sky, no trees at the landing.</li>
-        <li>Day 5 — the lab. Ball speed on one screen, UV on the other.</li>
+        <li>The shake. Shooter’s hand is out. Happy is already gone.</li>
+        <li>The bank. Happy teed it at the water.</li>
+        <li>The putt. It is in. Scottie has not moved.</li>
+        <li>The tee. Daly parked. The door shuts. He is still hitting.</li>
+        <li>Still up: the sprint, the hand, the lineup, and the nap.</li>
       </ul>
     </aside>
   </div>
@@ -397,6 +402,30 @@
   <script>
     const posts = [
       {
+        img: "images/gag-handshake.jpg",
+        alt: "Shooter McGavin reaches a cream-covered hand toward an empty tee",
+        caption: "Shooter offered the Shamblock handshake. Until Happy was already gone.",
+        tags: "#Shamblock #ShooterMcGavin"
+      },
+      {
+        img: "images/gag-bank.jpg",
+        alt: "Happy Gilmore addresses a driver with the ball teed at the waterline",
+        caption: "They said lay up. Until Happy teed it on the bank, the Shamblock was the only thing he did.",
+        tags: "#Shamblock #HappyGilmore"
+      },
+      {
+        img: "images/gag-in.jpg",
+        alt: "Scottie Scheffler stares deadpan at a ball that is already in the hole",
+        caption: "The putt was already in. Until the Shamblock dried, Scottie still had not moved.",
+        tags: "#Shamblock #Scottie"
+      },
+      {
+        img: "images/gag-parked.jpg",
+        alt: "John Daly stands with a driver beside a sedan parked on the course",
+        caption: "Daly drove all night as the ninth alternate. Until he parked on the tee, the Shamblock was still crooked.",
+        tags: "#Shamblock #JohnDaly"
+      },
+      {
         img: "images/gag-hand.jpg",
         alt: "Happy Gilmore smears sunscreen across Shooter McGavin's cheek",
         caption: "Shooter asked for a touch-up. Happy used his whole hand.",
@@ -423,10 +452,12 @@
     ];
 
     const highlights = [
-      { name: "The hand", img: "images/gag-hand.jpg", line: "Shooter asked for a touch-up." },
+      { name: "The shake", img: "images/gag-handshake.jpg", line: "Shooter offered the handshake." },
+      { name: "The bank", img: "images/gag-bank.jpg", line: "Happy teed it on the bank." },
+      { name: "The putt", img: "images/gag-in.jpg", line: "It was already in." },
+      { name: "The tee", img: "images/gag-parked.jpg", line: "Daly parked on the tee." },
       { name: "The sprint", img: "images/gag-sprint.jpg", line: "Fore, from forty yards out." },
-      { name: "The lineup", img: "images/gag-lineup.jpg", line: "Daly saluted in the argyle." },
-      { name: "Slide one", img: "images/gag-asleep.jpg", line: "Daly was already out." }
+      { name: "The hand", img: "images/gag-hand.jpg", line: "Shooter asked for a touch-up." }
     ];
 
     const grid = document.getElementById("grid");
@@ -487,7 +518,7 @@
     });
 
     document.getElementById("copy-bio").addEventListener("click", async () => {
-      const bio = "Brisun De Shamblock\nFounder, Shamblock\nBig drives. Full sun. Zero fade.\nIf it carries 320, it left the shade.\nParody account";
+      const bio = "Brisun De Shamblock\nFounder, Shamblock\nGolf. Laughs. The cream is the punchline.\nParody account";
       await navigator.clipboard.writeText(bio);
       document.getElementById("copy-bio").textContent = "Bio copied";
     });
