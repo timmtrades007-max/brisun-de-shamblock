@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brisun De Shamblock — Shamblock</title>
+  <style>
+    :root {
+      --navy: #0b1c33;
+      --navy-2: #132844;
+      --cream: #f6f1e8;
+      --gold: #c6a36a;
+      --ink: #1a1a1a;
+      --muted: #8e8e8e;
+      --line: #dbdbdb;
+      --ig: #fafafa;
+      --blue: #0095f6;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 980px) {
+      .wrap { grid-template-columns: 1fr; justify-items: center; }
+      .brand { width: min(640px, 100%); }
+    }
+    .kicker {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--gold);
+      margin: 0 0 8px;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin: 0 0 8px;
+    }
+    .lede { color: #d9d0c3; line-height: 1.5; margin: 0 0 18px; max-width: 46ch; }
+    .note {
+      border: 1px solid rgba(198, 163, 106, 0.45);
+      color: #efe6d6;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      margin-bottom: 22px;
+    }
+    .phone {
+      width: 390px;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #1d3354;
+    }
+    .ig-top, .ig-tabs, .post-bar, .story-top {
+      display: flex;
+      align-items: center;
+    }
+    .ig-top {
+      justify-content: space-between;
+      padding: 14px 14px 8px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .ig-top span { letter-spacing: -0.02em; }
+    .head {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 18px;
+      padding: 8px 16px 12px;
+      align-items: center;
+    }
+    .avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      outline: 2px solid #c6a36a;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+    .stats b { display: block; font-size: 16px; }
+    .stats span { color: var(--ink); font-size: 13px; }
+    .bio { padding: 0 16px 12px; font-size: 14px; line-height: 1.35; }
+    .bio strong { display: block; }
+    .bio .cat { color: #737373; font-size: 13px; font-weight: 400; }
+    .bio a { color: #00376b; text-decoration: none; font-weight: 600; }
+    .actions { display: flex; gap: 6px; padding: 0 16px 14px; }
+    .actions button, .copy {
+      border: 1px solid var(--line);
+      background: #efefef;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .actions button { flex: 1; }
+    .highlights {
+      display: flex;
+      gap: 16px;
+      padding: 4px 16px 14px;
+      overflow-x: auto;
+    }
+    .highlights button {
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      width: 72px;
+      text-align: center;
+      color: var(--ink);
+      font-size: 12px;
+    }
+    .ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      padding: 2px;
+      border: 1px solid #dbdbdb;
+      margin: 0 auto 6px;
+    }
+    .ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .ig-tabs { border-top: 1px solid var(--line); }
+    .ig-tabs button {
+      flex: 1;
+      background: #fff;
+      border: 0;
+      border-top: 1px solid transparent;
+      margin-top: -1px;
+      padding: 12px;
+      cursor: pointer;
+      color: #8e8e8e;
+    }
+    .ig-tabs button.on { color: var(--ink); border-top-color: var(--ink); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #fff; }
+    .grid button { padding: 0; border: 0; background: #eee; cursor: pointer; aspect-ratio: 1; }
+    .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .reels { background: #000; }
+    .reels video { width: 100%; display: block; background: #000; }
+    .reels p { margin: 0; padding: 10px 14px 16px; background: #fff; color: #262626; font-size: 13px; line-height: 1.4; }
+    .modal, .story {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      padding: 24px;
+    }
+    .modal.open, .story.open { display: flex; }
+    .sheet {
+      width: min(860px, 100%);
+      background: #fff;
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 460px;
+    }
+    @media (max-width: 800px) {
+      .sheet { grid-template-columns: 1fr; }
+    }
+    .sheet > img { width: 100%; height: 100%; object-fit: cover; background: #111; min-height: 280px; }
+    .sheet-body { padding: 16px 16px 20px; display: flex; flex-direction: column; }
+    .who { display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 14px; }
+    .who img { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; object-fit: cover; }
+    [hidden] { display: none !important; }
+    .cap { font-size: 14px; line-height: 1.45; margin: 14px 0; }
+    .cap b { margin-right: 6px; }
+    .tags { color: #00376b; }
+    .copy { align-self: flex-start; }
+    .copy.done { background: #111; color: #fff; border-color: #111; }
+    .x {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: transparent;
+      color: #fff;
+      border: 0;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    .story-card {
+      width: min(390px, 100%);
+      height: min(700px, 86vh);
+      background: #111;
+      position: relative;
+      color: #fff;
+    }
+    .story-card img { width: 100%; height: 100%; object-fit: cover; }
+    .story-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 14px;
+      gap: 10px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.45), transparent);
+    }
+    .bar { flex: 1; height: 2px; background: rgba(255,255,255,.35); }
+    .bar i { display: block; height: 100%; width: 100%; background: #fff; }
+    .story-top img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+    .story-cap {
+      position: absolute;
+      left: 16px; right: 16px; bottom: 24px;
+      font-size: 16px;
+      line-height: 1.35;
+      text-shadow: 0 1px 8px rgba(0,0,0,.6);
+    }
+    .brand h2 { font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--gold); margin: 28px 0 10px; }
+    .brand h2:first-child { margin-top: 0; }
+    .brand p, .brand li { color: #e7e0d4; line-height: 1.5; font-size: 15px; }
+    .brand ul { margin: 0; padding-left: 18px; }
+    .brand li { margin: 0 0 8px; }
+    .products { display: grid; gap: 10px; }
+    .product {
+      background: var(--navy-2);
+      padding: 12px 14px;
+    }
+    .product b { display: block; color: #fff; margin-bottom: 4px; }
+    .product span { color: #d9d0c3; font-size: 14px; line-height: 1.45; }
+    .protocol { counter-reset: step; list-style: none; padding: 0; }
+    .protocol li { counter-increment: step; padding-left: 28px; position: relative; }
+    .protocol li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+    .watch { max-width: 1180px; margin: 0 auto; padding: 28px 24px 0; }
+    .players { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+    .players figure { margin: 0; }
+    .players video {
+      width: min(300px, 86vw);
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000;
+      display: block;
+      border-radius: 18px;
+    }
+    .players figcaption {
+      margin-top: 8px;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <section class="watch">
+    <p class="kicker">The movie reel</p>
+    <div class="players">
+      <figure>
+        <video src="videos/brisun-the-sitdown.mp4" controls autoplay muted loop playsinline></video>
+        <figcaption>The sit-down · 12 sec</figcaption>
+      </figure>
+      <figure>
+        <video src="videos/the-bomb.mp4" controls muted loop playsinline></video>
+        <figcaption>The Bomb · 14 sec</figcaption>
+      </figure>
+      <figure>
+        <video src="videos/the-coat.mp4" controls muted loop playsinline></video>
+        <figcaption>The Coat · 10 sec</figcaption>
+      </figure>
+    </div>
+  </section>
+  <div class="wrap">
+    <div>
+      <p class="kicker">Launch preview</p>
+      <h1>@brisundeshamblock</h1>
+      <p class="lede">A parody account built like Bryson’s game: big drives, big hits, and a sunblock for the walk after a 320-yard carry leaves the shade behind.</p>
+      <div class="note">Fictional parody. Not Bryson DeChambeau, and not a live Instagram. Open a new account in your name, label it a parody, and post these as original brand photos.</div>
+      <div class="phone" id="phone">
+        <div class="ig-top">
+          <span>brisundeshamblock</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </div>
+        <div class="head">
+          <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
+          <div class="stats">
+            <div><b>9</b><span>posts</span></div>
+            <div><b>0</b><span>followers</span></div>
+            <div><b>0</b><span>following</span></div>
+          </div>
+        </div>
+        <div class="bio">
+          <strong>Brisun De Shamblock</strong>
+          <span class="cat">Athlete</span><br />
+          Founder, Shamblock<br />
+          Big drives. Full sun. Zero fade.<br />
+          If it carries 320, it left the shade.<br />
+          Parody account<br />
+          <a href="#line">shamblock.club</a>
+        </div>
+        <div class="actions">
+          <button type="button" id="copy-bio">Copy bio</button>
+          <button type="button" id="jump-grid">Launch grid</button>
+        </div>
+        <div class="highlights" id="highlights"></div>
+        <div class="ig-tabs">
+          <button class="on" type="button" data-tab="grid" aria-label="Posts">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg>
+          </button>
+          <button type="button" data-tab="reels" aria-label="Reels">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9l6 3-6 3V9z"/></svg>
+          </button>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="reels" id="reels" hidden>
+          <video src="videos/the-bomb.mp4" controls playsinline poster="images/brisun-reel-bomb.jpg"></video>
+          <p>The Bomb. 14 seconds. Post this first, sound on.</p>
+          <video src="videos/the-coat.mp4" controls playsinline poster="images/brisun-post-product-tee.jpg"></video>
+          <p>The Coat. 10 seconds. Product reel. Post it the day after.</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="brand">
+      <h2 id="line">The company</h2>
+      <p>A long drive does not land under a tree. It lands in the middle of a wide hole, in full sun, after a swing that already made you sweat. Shamblock is the coat for that round: Bryson’s variables, aimed at the sun.</p>
+      <div class="products">
+        <div class="product"><b>Bomb SPF 50</b><span>Face and neck. On before you swing out of your shoes. The tee-shot coat. Holds through a sweaty speed block.</span></div>
+        <div class="product"><b>Carry 30</b><span>Arms and legs. For the walk to a ball that flew past the shade. The further it carries, the longer you are in the open.</span></div>
+        <div class="product"><b>Single Length SPF</b><span>One formula, every surface. Same religion as one length of iron. Ears, neck, the back of the hands.</span></div>
+        <div class="product"><b>Smash Stick</b><span>The white zinc stripe. Center-face for the nose. On before the first ball on the range, any index over 3.</span></div>
+        <div class="product"><b>80-Minute Mist</b><span>A speed swing soaks a coat. Two passes on the walk, then another driver. Reapply at 80 minutes or at the turn.</span></div>
+        <div class="product"><b>Lip 5.5°</b><span>SPF balm named for a low-loft driver. The pocket club. Stays with the tee, not in the car.</span></div>
+      </div>
+
+      <h2>The protocol</h2>
+      <ol class="protocol">
+        <li>Smash Stick on the nose before the first speed swing.</li>
+        <li>Bomb SPF 50 on the face. Carry 30 on the arms.</li>
+        <li>Single Length on the ears and neck. The tee box has no roof.</li>
+        <li>80-Minute Mist after the session, or at the turn, then hit driver again.</li>
+        <li>Lip 5.5° lives in the pocket with the tee.</li>
+      </ol>
+
+      <h2>How the account talks</h2>
+      <ul>
+        <li>Lead with the swing. Carry, ball speed, smash. The product is the second sentence.</li>
+        <li>Talk like the math is already done. State the number. Do not explain the worksheet.</li>
+        <li>Big hits only. Driver, the blast out of the sand, the ball already in the air.</li>
+        <li>Three bomb posts for every product post. The drive is the reason to follow.</li>
+        <li>Parody stays in the bio. This is an original character, not Bryson DeChambeau.</li>
+      </ul>
+
+      <h2>What to post this week</h2>
+      <ul>
+        <li>Day 1 — the mark. “Built for the swing that leaves the shade behind.”</li>
+        <li>Day 2 — the finish. Driver high, ball already gone. No product in the caption.</li>
+        <li>Day 3 — impact. The clubface is the whole post.</li>
+        <li>Day 4 — carry. Empty tee, ball in the sky, no trees at the landing.</li>
+        <li>Day 5 — the lab. Ball speed on one screen, UV on the other.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="modal" id="modal">
+    <button class="x" type="button" data-close="modal" aria-label="Close">×</button>
+    <div class="sheet">
+      <img id="modal-img" alt="" />
+      <div class="sheet-body">
+        <div class="who">
+          <img src="images/brisun-profile.jpg" alt="" />
+          brisundeshamblock
+        </div>
+        <p class="cap" id="modal-cap"></p>
+        <button class="copy" id="copy-cap" type="button">Copy caption</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="story" id="story">
+    <button class="x" type="button" data-close="story" aria-label="Close">×</button>
+    <div class="story-card">
+      <img id="story-img" alt="" />
+      <div class="story-top">
+        <div class="bar"><i></i></div>
+        <img src="images/brisun-profile.jpg" alt="" />
+        <strong>brisundeshamblock</strong>
+      </div>
+      <div class="story-cap" id="story-cap"></div>
+    </div>
+  </div>
+
+  <script>
+    const posts = [
+      {
+        img: "images/brisun-post-bomb.jpg",
+        alt: "Driver finish with the ball already in the air",
+        caption: "Finish high. Ball already in the window. This is the whole account.",
+        tags: "#Shamblock #BigDrives"
+      },
+      {
+        img: "images/brisun-post-impact.jpg",
+        alt: "Driver face striking the ball",
+        caption: "Center face. That is the swing. That is the only contact that counts this morning.",
+        tags: "#Shamblock #BallSpeed"
+      },
+      {
+        img: "images/brisun-post-carry.jpg",
+        alt: "Empty tee and a ball already high over a wide fairway",
+        caption: "Tee is empty. Ball is up there. A 320 carry is a walk with no trees, so the coat goes on before the swing.",
+        tags: "#Shamblock #Carry"
+      },
+      {
+        img: "images/brisun-post-bunker.jpg",
+        alt: "Bunker blast with zinc still on",
+        caption: "Blasted out. Zinc still on. A big hit does not take the hole off.",
+        tags: "#Shamblock #BigHits"
+      },
+      {
+        img: "images/brisun-post-dawn-swing.jpg",
+        alt: "Morning driver swing on a links",
+        caption: "Morning speed block. Same swing. The ball is already gone.",
+        tags: "#Shamblock #Driver"
+      },
+      {
+        img: "images/brisun-post-lab-range.jpg",
+        alt: "UV meter and sunscreen beside a launch monitor",
+        caption: "Ball speed on the left. UV at 6.2 on the right. Both numbers should be high. Only one of them should hit your skin.",
+        tags: "#Shamblock #SmashFactor"
+      },
+      {
+        img: "images/brisun-post-product-tee.jpg",
+        alt: "Bomb SPF 50 standing on a tee",
+        caption: "Bomb SPF 50. On the face before you swing out of your shoes.",
+        tags: "#BombSPF50 #Shamblock"
+      },
+      {
+        img: "images/brisun-post-bag.jpg",
+        alt: "Sunscreen packed in a golf bag",
+        caption: "Single Length SPF. One coat, every surface. Same idea as one iron.",
+        tags: "#SingleLength #Shamblock"
+      },
+      {
+        img: "images/brisun-logo.jpg",
+        alt: "Brisun De Shamblock mark",
+        caption: "We are live. Shamblock is for the swing that carries you out of the shade.",
+        tags: "#BrisunDeShamblock #Shamblock"
+      }
+    ];
+
+    const highlights = [
+      { name: "Bombs", img: "images/brisun-post-bomb.jpg", line: "Finish high. The ball is already gone." },
+      { name: "Carry", img: "images/brisun-post-carry.jpg", line: "320 puts you past the shade. Coat first." },
+      { name: "Impact", img: "images/brisun-post-impact.jpg", line: "Center face. Then get out of the way." },
+      { name: "The Lab", img: "images/brisun-post-lab-range.jpg", line: "Ball speed and UV. Only one should hit you." }
+    ];
+
+    const grid = document.getElementById("grid");
+    posts.forEach((post, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.innerHTML = `<img src="${post.img}" alt="${post.alt}">`;
+      btn.addEventListener("click", () => openPost(i));
+      grid.appendChild(btn);
+    });
+
+    const hl = document.getElementById("highlights");
+    highlights.forEach((item) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.innerHTML = `<div class="ring"><img src="${item.img}" alt=""></div>${item.name}`;
+      btn.addEventListener("click", () => openStory(item));
+      hl.appendChild(btn);
+    });
+
+    const modal = document.getElementById("modal");
+    const story = document.getElementById("story");
+    let currentCaption = "";
+
+    function openPost(i) {
+      const post = posts[i];
+      document.getElementById("modal-img").src = post.img;
+      document.getElementById("modal-img").alt = post.alt;
+      currentCaption = `${post.caption}\n\n${post.tags}`;
+      document.getElementById("modal-cap").innerHTML = `<b>brisundeshamblock</b> ${post.caption}<br><span class="tags">${post.tags}</span>`;
+      const copy = document.getElementById("copy-cap");
+      copy.textContent = "Copy caption";
+      copy.classList.remove("done");
+      modal.classList.add("open");
+    }
+
+    function openStory(item) {
+      document.getElementById("story-img").src = item.img;
+      document.getElementById("story-img").alt = item.name;
+      document.getElementById("story-cap").textContent = item.line;
+      story.classList.add("open");
+    }
+
+    document.querySelectorAll("[data-close]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById(btn.dataset.close).classList.remove("open");
+      });
+    });
+
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
+    story.addEventListener("click", (e) => { if (e.target === story) story.classList.remove("open"); });
+
+    document.getElementById("copy-cap").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(currentCaption);
+      const copy = document.getElementById("copy-cap");
+      copy.textContent = "Copied";
+      copy.classList.add("done");
+    });
+
+    document.getElementById("copy-bio").addEventListener("click", async () => {
+      const bio = "Brisun De Shamblock\nFounder, Shamblock\nBig drives. Full sun. Zero fade.\nIf it carries 320, it left the shade.\nParody account";
+      await navigator.clipboard.writeText(bio);
+      document.getElementById("copy-bio").textContent = "Bio copied";
+    });
+
+    document.getElementById("jump-grid").addEventListener("click", () => {
+      document.getElementById("grid").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    document.querySelectorAll(".ig-tabs button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".ig-tabs button").forEach((b) => b.classList.remove("on"));
+        btn.classList.add("on");
+        const showReels = btn.dataset.tab === "reels";
+        document.getElementById("grid").hidden = showReels;
+        document.getElementById("reels").hidden = !showReels;
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.remove("open");
+        story.classList.remove("open");
+      }
+    });
+
+    const params = new URLSearchParams(location.hash.replace(/^#/, ""));
+    if (params.has("post")) openPost(Number(params.get("post")) || 0);
+    if (params.has("story")) openStory(highlights[Number(params.get("story")) || 0]);
+    if (params.get("tab") === "reels") document.querySelector('[data-tab="reels"]').click();
+  </script>
+</body>
+</html>

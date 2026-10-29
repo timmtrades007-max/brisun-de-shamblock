@@ -1,0 +1,6 @@
+fonts/
+videos/_tmp/
+__pycache__/
+*.pyc
+.endcheck.jpg
+videos/endcheck.jpg
