@@ -271,16 +271,8 @@
     <p class="kicker">The movie reel</p>
     <div class="players">
       <figure>
-        <video src="videos/brisun-the-sitdown.mp4" controls autoplay muted loop playsinline></video>
-        <figcaption>The sit-down · 12 sec</figcaption>
-      </figure>
-      <figure>
-        <video src="videos/the-bomb.mp4" controls muted loop playsinline></video>
-        <figcaption>The Bomb · 14 sec</figcaption>
-      </figure>
-      <figure>
-        <video src="videos/the-coat.mp4" controls muted loop playsinline></video>
-        <figcaption>The Coat · 10 sec</figcaption>
+        <video src="videos/the-trio.mp4" controls autoplay muted loop playsinline poster="images/ig-hero.jpg"></video>
+        <figcaption>Scottie, Bryson, Daly · 8 sec</figcaption>
       </figure>
     </div>
   </section>
@@ -289,7 +281,7 @@
       <p class="kicker">Launch preview</p>
       <h1>@brisundeshamblock</h1>
       <p class="lede">A parody account built like Bryson’s game: big drives, big hits, and a sunblock for the walk after a 320-yard carry leaves the shade behind.</p>
-      <div class="note">Fictional parody. Not Bryson DeChambeau, and not a live Instagram. Open a new account in your name, label it a parody, and post these as original brand photos.</div>
+      <div class="note">AI parody. The faces are Bryson, Scottie Scheffler, and John Daly. Not an endorsement, and not a live Instagram.</div>
       <div class="phone" id="phone">
         <div class="ig-top">
           <span>brisundeshamblock</span>
@@ -298,7 +290,7 @@
         <div class="head">
           <img class="avatar" src="images/brisun-profile.jpg" alt="Brisun De Shamblock" />
           <div class="stats">
-            <div><b>9</b><span>posts</span></div>
+            <div><b>6</b><span>posts</span></div>
             <div><b>0</b><span>followers</span></div>
             <div><b>0</b><span>following</span></div>
           </div>
@@ -327,10 +319,8 @@
         </div>
         <div class="grid" id="grid"></div>
         <div class="reels" id="reels" hidden>
-          <video src="videos/the-bomb.mp4" controls playsinline poster="images/brisun-reel-bomb.jpg"></video>
-          <p>The Bomb. 14 seconds. Post this first, sound on.</p>
-          <video src="videos/the-coat.mp4" controls playsinline poster="images/brisun-post-product-tee.jpg"></video>
-          <p>The Coat. 10 seconds. Product reel. Post it the day after.</p>
+          <video src="videos/the-trio.mp4" controls playsinline poster="images/ig-hero.jpg"></video>
+          <p>Scottie checks the time. Bryson is still on the tube. Daly has already hit.</p>
         </div>
       </div>
     </div>
@@ -407,66 +397,48 @@
   <script>
     const posts = [
       {
-        img: "images/brisun-post-bomb.jpg",
-        alt: "Driver finish with the ball already in the air",
-        caption: "Finish high. Ball already in the window. This is the whole account.",
+        img: "images/ig-tee.jpg",
+        alt: "Scottie checks his watch while Bryson applies sunscreen and Daly has already swung",
+        caption: "Scottie checked his watch. Bryson was still on the forearm. Daly had already hit.",
+        tags: "#Shamblock #Scottie #JohnDaly"
+      },
+      {
+        img: "images/ig-finish.jpg",
+        alt: "Bryson finishes a drive while Scottie stands unimpressed and Daly claps",
+        caption: "Scottie did not clap. Daly did. The ball was already gone.",
         tags: "#Shamblock #BigDrives"
       },
       {
-        img: "images/brisun-post-impact.jpg",
-        alt: "Driver face striking the ball",
-        caption: "Center face. That is the swing. That is the only contact that counts this morning.",
-        tags: "#Shamblock #BallSpeed"
+        img: "images/ig-hero.jpg",
+        alt: "Bryson holds a sunscreen tube while Daly finishes and Scottie stares",
+        caption: "The routine was not finished. The swing was.",
+        tags: "#Shamblock #TheTee"
       },
       {
-        img: "images/brisun-post-carry.jpg",
-        alt: "Empty tee and a ball already high over a wide fairway",
-        caption: "Tee is empty. Ball is up there. A 320 carry is a walk with no trees, so the coat goes on before the swing.",
-        tags: "#Shamblock #Carry"
+        img: "images/ig-sitdown.jpg",
+        alt: "Bryson, Daly, and Scottie at a table with a driver and a sunscreen tube",
+        caption: "Bryson brought the terms. It was a tube. Scottie folded his hands. Daly laughed.",
+        tags: "#Shamblock #TheSitDown"
       },
       {
-        img: "images/brisun-post-bunker.jpg",
-        alt: "Bunker blast with zinc still on",
-        caption: "Blasted out. Zinc still on. A big hit does not take the hole off.",
-        tags: "#Shamblock #BigHits"
-      },
-      {
-        img: "images/brisun-post-dawn-swing.jpg",
-        alt: "Morning driver swing on a links",
-        caption: "Morning speed block. Same swing. The ball is already gone.",
-        tags: "#Shamblock #Driver"
-      },
-      {
-        img: "images/brisun-post-lab-range.jpg",
-        alt: "UV meter and sunscreen beside a launch monitor",
-        caption: "Ball speed on the left. UV at 6.2 on the right. Both numbers should be high. Only one of them should hit your skin.",
-        tags: "#Shamblock #SmashFactor"
-      },
-      {
-        img: "images/brisun-post-product-tee.jpg",
-        alt: "Bomb SPF 50 standing on a tee",
-        caption: "Bomb SPF 50. On the face before you swing out of your shoes.",
-        tags: "#BombSPF50 #Shamblock"
-      },
-      {
-        img: "images/brisun-post-bag.jpg",
-        alt: "Sunscreen packed in a golf bag",
-        caption: "Single Length SPF. One coat, every surface. Same idea as one iron.",
-        tags: "#SingleLength #Shamblock"
-      },
-      {
-        img: "images/brisun-logo.jpg",
-        alt: "Brisun De Shamblock mark",
-        caption: "We are live. Shamblock is for the swing that carries you out of the shade.",
+        img: "images/ig-bryson.jpg",
+        alt: "Bryson with a zinc stripe across his nose",
+        caption: "Zinc on. Then we talk about ball speed.",
         tags: "#BrisunDeShamblock #Shamblock"
+      },
+      {
+        img: "images/ig-bag.jpg",
+        alt: "Golf bag with one ball, a glove, tees, and a sunscreen tube in the pocket",
+        caption: "One ball. One glove. The tube in the pocket, where it belongs.",
+        tags: "#Shamblock #InTheBag"
       }
     ];
 
     const highlights = [
-      { name: "Bombs", img: "images/brisun-post-bomb.jpg", line: "Finish high. The ball is already gone." },
-      { name: "Carry", img: "images/brisun-post-carry.jpg", line: "320 puts you past the shade. Coat first." },
-      { name: "Impact", img: "images/brisun-post-impact.jpg", line: "Center face. Then get out of the way." },
-      { name: "The Lab", img: "images/brisun-post-lab-range.jpg", line: "Ball speed and UV. Only one should hit you." }
+      { name: "The Tee", img: "images/ig-tee.jpg", line: "Daly hit. Bryson was still lotioning." },
+      { name: "Finish", img: "images/ig-finish.jpg", line: "Scottie did not clap." },
+      { name: "The Table", img: "images/ig-sitdown.jpg", line: "The terms were a tube of sunscreen." },
+      { name: "The Bag", img: "images/ig-bag.jpg", line: "One ball. The tube stays in the pocket." }
     ];
 
     const grid = document.getElementById("grid");
